@@ -468,6 +468,8 @@ def main():
 
     tokenizer = fetch_tokenizer(model_args)
     model.resize_token_embeddings(len(tokenizer))
+    tok_len = len(tokenizer)
+    logger.info(f"For the curious, tokenezer length: {tok_len}")
 
     # Preprocessing the datasets.
     # First we tokenize all the texts.
