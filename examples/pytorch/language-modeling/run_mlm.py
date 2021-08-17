@@ -474,6 +474,12 @@ def main():
     # Preprocessing the datasets.
     # First we tokenize all the texts.
     tokenized_datasets = tokenize(tokenizer, raw_datasets, data_args, training_args)
+    tokenized_datasets.save_to_disk(f'{training_args.output_dir}/tokenized')
+
+    # Optional: test that saved tokenized dataset can be loaded.
+    # logging.info(f"Testing loading tokenized dataset from {training_args.output_dir}/tokenized")
+    # tokenized_datasets.load_from_disk(f'{training_args.output_dir}/tokenized')
+    #logging.info("Done loading.")
 
     if training_args.do_train:
         if "train" not in tokenized_datasets:
