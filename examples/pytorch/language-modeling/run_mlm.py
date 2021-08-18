@@ -469,7 +469,7 @@ def main():
     tokenizer = fetch_tokenizer(model_args)
     model.resize_token_embeddings(len(tokenizer))
     tok_len = len(tokenizer)
-    logger.info(f"For the curious, tokenezer length: {tok_len}")
+    logger.info(f"For the curious, tokenizer length: {tok_len}")
 
     # Preprocessing the datasets.
     # First we tokenize all the texts.
@@ -504,6 +504,7 @@ def main():
         pad_to_multiple_of=8 if pad_to_multiple_of_8 else None,
     )
 
+    logger.info(f"For the curious, training_args are: {training_args}")
     # Initialize our Trainer
     trainer = Trainer(
         model=model,
